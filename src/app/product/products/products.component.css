@@ -1,0 +1,74 @@
+form>div:first-child {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+form label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+form textarea {
+    resize: none;
+    width: 200px;
+    height: 200px;
+}
+
+@media (max-width:547px) {
+    form .box>div:nth-of-type(2) {
+        min-width: 70px;
+    }
+
+    form textarea {
+        width: 100px;
+        height: 100px;
+    }
+
+    form textarea::placeholder {
+        font-size: 14px;
+    }
+
+    form label {
+        font-weight: normal;
+        font-size: 16px;
+    }
+}
+
+form .update {
+    width: 100px;
+    padding: 4px 10px;
+    border: none;
+}
+
+
+
+table {
+    text-align: center;
+    width: 100%;
+    background-color: rgb(227, 227, 226);
+}
+
+tbody td {
+    border: 2px solid #eee;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+h4 {
+    max-width: 300px;
+    color: rgb(33, 131, 184);
+}
+
+@media (max-width:672px) {
+    h4 {
+        font-size: 15px;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}

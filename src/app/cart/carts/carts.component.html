@@ -1,0 +1,57 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="rgb(87, 203, 211)" type="square-spin"
+    [fullScreen]="true">
+    <p style="color: rgb(87, 203, 211);text-transform: uppercase;letter-spacing: 2px;"> Loading... </p>
+</ngx-spinner>
+@if(popup){
+<div class="content">
+    <div class="popup text-start">
+        <button (click)="close()" class="exit">x</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>image</th>
+                    <th colspan="2">title</th>
+                    <th>amount</th>
+
+                </tr>
+            </thead>
+            @for(product of productsDetails;track product){
+            <tbody>
+                <tr class="product">
+                    <td><img [src]="product.prod.image" alt=""></td>
+                    <td colspan="2">{{product.prod.title}}
+                    </td>
+                    <td>
+                        {{product.amount}}
+                    </td>
+                </tr>
+            </tbody>
+            }
+        </table>
+    </div>
+</div>
+}
+<table>
+    <thead>
+        <tr>
+            <th>date</th>
+            <th>products</th>
+            <th>details</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    @for(item of cartProduct;track item;let index=$index){<tbody>
+        <tr class="product">
+            <td class="title text-primary">{{item.date|date}}</td>
+            <td>{{item.products.length}}
+            </td>
+            <td>
+                <div (click)="details(item.products)" class="btn btn-primary">details</div>
+            </td>
+            <td>
+                <div (click)="delete(item.id)" class="btn btn-danger">delete</div>
+            </td>
+        </tr>
+    </tbody>
+    }
+</table>

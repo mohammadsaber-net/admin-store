@@ -1,0 +1,77 @@
+@if(popup){
+<div class="content">
+    <div class="popup text-start">
+        <button (click)="close()" class="exit">x</button>
+        <form [formGroup]="updateForm">
+            <div class="box d-flex justify-content-between gap-2 align-items-center">
+                <div>
+                    <label class="d-block" for="">id</label>
+                    <input formControlName="id" class="form-control" type="text">
+                    @if(updateForm.get("id")?.getError("pattern")){<small class="text-danger">not a Number</small>}
+                </div>
+                <div>
+                    <label class="d-block" for="">title</label>
+                    <input formControlName="title" class="form-control" type="text">
+                </div>
+                <div>
+                    <label class="d-block" for="">price</label>
+                    <input formControlName="price" class="form-control" type="text">
+                    @if(updateForm.get("price")?.getError("pattern")){<small class="text-danger">not a Number</small>}
+                </div>
+                <div>
+                    <label class="d-block" for="">category</label>
+                    <input formControlName="category" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between gap-2align-items-center">
+                <div>
+                    <label class="d-block" for="">image</label>
+                    <img class="w-75 h-75" src="{{base64}}" alt="">
+                    <input (change)="getimagepath($event)" class="form-control" type="file">
+                </div>
+                <div class="flex-grow">
+                    <label class="d-block" for="">description</label>
+                    <textarea formControlName="description" placeholder="add description...." id="description"
+                        class="form-control" name="" id=""></textarea>
+
+                </div>
+            </div>
+            @if(upload){
+            <button [disabled]="updateForm.invalid" (click)="uploadItem()"
+                class="btn btn-primary mt-2 ms-auto d-block">upload</button>
+            }@else {
+            <button [disabled]="updateForm.invalid" (click)="updateItem()"
+                class="update btn btn-primary mt-2 ms-auto d-block">update</button>
+            }
+
+        </form>
+    </div>
+</div>
+}
+<div (click)="addItem()" class=" mb-3 btn btn-primary">add new product</div>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="rgb(87, 203, 211)" type="square-spin"
+    [fullScreen]="true">
+    <p style="color: rgb(87, 203, 211);text-transform: uppercase;letter-spacing: 2px;"> Loading... </p>
+</ngx-spinner>
+<table>
+    <thead>
+        <tr>
+            <th>image</th>
+            <th>title</th>
+            <th>price</th>
+            <th>update</th>
+        </tr>
+    </thead>
+    @for(product of allProducts;track product;let index=$index){
+    <tbody>
+        <tr>
+            <td><img [src]="product.image" alt=""></td>
+            <td>
+                <h4 class="title">{{product.title}}</h4>
+            </td>
+            <td><span class="price">{{product.price}} EGP</span></td>
+            <td><span (click)="update(index)" class="btn btn-primary">update</span></td>
+        </tr>
+    </tbody>
+    }
+</table>
