@@ -5,7 +5,7 @@
         <form [formGroup]="updateForm">
             <div class="box d-flex justify-content-between gap-2 align-items-center">
                 <div>
-                    <label class="d-block" for="">id</label>
+                    <label class="d-block" for="id">id</label>
                     <input formControlName="id" class="form-control" type="text">
                     @if(updateForm.get("id")?.getError("pattern")){<small class="text-danger">not a Number</small>}
                 </div>
