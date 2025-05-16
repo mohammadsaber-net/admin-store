@@ -15,7 +15,7 @@ form input form textarea {
 }
 
 form input {
-    min-width: 30px;
+    min-width: 40px;
 }
 
 @media (max-width:547px) {
