@@ -64,7 +64,7 @@
     </thead>
     @for(product of allProducts;track product;let index=$index){
     <tbody>
-        <tr [class]='"index-"+index%2'>
+        <tr>
             <td><img [src]="product.image" alt=""></td>
             <td>
                 <h4 class="title">{{product.title}}</h4>
