@@ -3,7 +3,7 @@
         <img class="w-100 h-100"
             src="https://as1.ftcdn.net/v2/jpg/01/98/95/36/1000_F_198953661_xKgWdQAsA1WirSJjwba8QRNBIDkoV2II.jpg" alt="">
     </div>
-    <form [formGroup]="loginform" class=" align-self-center p-1 m-2">
+    <form [formGroup]="loginform" class=" align-self-center m-2">
         <div class="mb-3 position-relative">
             @if(loginform.get("email")?.touched && loginform.get("email")?.getError("required")){
             <span class="require text-danger fs-1">*</span>

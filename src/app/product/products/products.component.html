@@ -64,13 +64,13 @@
     </thead>
     @for(product of allProducts;track product;let index=$index){
     <tbody>
-        <tr>
+        <tr class="box" [id]='"ind"+index%2'>
             <td><img [src]="product.image" alt=""></td>
             <td>
                 <h4 class="title">{{product.title}}</h4>
             </td>
             <td><span class="price">{{product.price}} EGP</span></td>
-            <td><span (click)="update(index)" class="btn btn-primary">update</span></td>
+            <td><span (click)="update(index)" class="btn update-btn btn-primary">update</span></td>
         </tr>
     </tbody>
     }
